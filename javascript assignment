@@ -1,0 +1,88 @@
+/* a job platform, where:
+companies publish jobs that include description and pay
+freelancers like jobs and accept the payments
+companies give jobs
+
+*/ 
+//classes
+
+var company = class {
+    constructor (name) {
+        this.name = name
+        this.pubishJob= []
+        this.giveJob = []
+    }
+
+}
+var job = class {
+    constructor (name, description) {
+    this.name = name
+    this.description=description
+    this.publishedJob = []
+    this.givenJob = []
+    this.jobLiked = []
+    }
+}
+
+var pay= class {
+    constructor (amount) {
+    this.amount= amount
+    this.acceptPay = [] }
+}
+
+var freelancer = class {
+    constructor (name, skill) {
+    this.name = name
+    this.skill = skill
+    this.acceptedPay = []
+    this.iLikeJob = []
+    }
+
+//functions
+
+publish(job) {
+    this.publishJob.push(company)
+    this.publishedJob.push(job)
+    }
+give(job) {
+    this.giveJob.push(job)
+    this.givenJob.push(company)
+}
+
+accept(pay) {
+    this.acceptPay.push(freelancer)
+    this.acceptedPay.push(this.name)
+
+}
+
+like(job) {
+    this.jobLiked.push(freelancer)
+    this.iLikeJob.push(job) }
+}
+
+//actors
+
+var Tim = new freelancer ("Tim", "musician")
+var Josh = new freelancer ("Josh", "translator")
+var newSong = new job ("a new song", "compose a new song")
+var translate = new job ("translate", "translate from German to English")
+var eSharp = new company ("E Sharp")
+var linguaGroup = new company ("Lingua Group")
+var pay1 = new pay ("100$")
+var pay2 = new pay ("50$")
+
+//actions
+
+eSharp.publish(newSong)
+linguaGroup.publish(translate)
+Tim.like(newSong)
+Josh.like(translate)
+Tim.accept(pay1)
+Josh.accept(pay2)
+eSharp.give(newSong)
+linguaGroup.give(translate)
+
+
+
+
+
