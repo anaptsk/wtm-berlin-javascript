@@ -6,15 +6,7 @@ companies give jobs
 */ 
 //classes
 
-var company = class {
-    constructor (name) {
-        this.name = name
-        this.pubishJob= []
-        this.giveJob = []
-    }
-
-}
-var job = class {
+var Job = class {
     constructor (name, description) {
     this.name = name
     this.description=description
@@ -22,51 +14,57 @@ var job = class {
     this.givenJob = []
     this.jobLiked = []
     }
-
-publish(job) {
-    this.publishJob.push(job)
-    this.publishedJob.push(this)
+}
+var Company = class {
+    constructor (name) {
+        this.name = name
+        this.pubishJob= []
+        this.giveJob = []
     }
-give(job) {
-    this.giveJob.push(job)
-    this.givenJob.push(this)
+    publish(Job) {
+        this.Job = Job
+        company.publishJob.push(this)
+        job.publishedJob.push(this)
+        }
+    give(Job) {
+            company.giveJob.push(this)
+            job.givenJob.push(this)
+        }
 }
-}
-
-var pay= class {
+var Pay= class {
     constructor (amount) {
     this.amount= amount
     this.acceptPay = [] }
 }
 
-var freelancer = class {
+var Freelancer = class {
     constructor (name, skill) {
     this.name = name
     this.skill = skill
     this.acceptedPay = []
     this.iLikeJob = [] }
    
-   accept(pay) {
-    this.acceptPay.push(pay)
-    this.acceptedPay.push(this)
+   accept(Pay) {
+    pay.acceptPay.push(this)
+    freelancer.acceptedPay.push(this)
 
     }
 
-like(job) {
-    this.jobLiked.push(job)
-    this.iLikeJob.push(this) }
+like(Job) {
+    job.jobLiked.push(this)
+    freelancer.iLikeJob.push(this) }
 }
 
 //actors
 
-var Tim = new freelancer ("Tim", "musician")
-var Josh = new freelancer ("Josh", "translator")
-var newSong = new job ("a new song", "compose a new song")
-var translate = new job ("translate", "translate from German to English")
-var eSharp = new company ("E Sharp")
-var linguaGroup = new company ("Lingua Group")
-var pay1 = new pay ("100$")
-var pay2 = new pay ("50$")
+var Tim = new Freelancer ("Tim", "musician")
+var Josh = new Freelancer ("Josh", "translator")
+var newSong = new Job ("a new song", "compose a new song")
+var translate = new Job ("translate", "translate from German to English")
+var eSharp = new Company ("E Sharp")
+var linguaGroup = new Company ("Lingua Group")
+var pay1 = new Pay ("100$")
+var pay2 = new Pay ("50$")
 
 //actions
 
